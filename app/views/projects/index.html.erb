@@ -1,5 +1,6 @@
+<%= link_to "New Ticket", new_project_path %><br.>
 <%= link_to "New Project", new_project_path %>
-<h2>Projects</h2>
+<h2>Tickets via Ticketee</h2>
 <ul>
   <% @projects.each do |project| %>
 	<li><%= link_to project.name, project %></li>
