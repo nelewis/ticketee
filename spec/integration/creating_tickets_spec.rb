@@ -26,4 +26,16 @@ feature "Creating Tickets" do
 	# page.should have_content("Title can't be blank")
 	# page.should have_content("Description can't be blank")
   # end
+  
+  scenario "Description must be longer than 10 characters in nested ticket inside project" do
+  	fill_in "Name", :with => "Non-standards compliance"
+	fill_in "Description", :with => "it sucks"
+	click_button "Create Project"
+	click_link "New Ticket"
+	fill_in "Title", :with => "Non-standards compliance"
+	fill_in "Description", :with => "it sucks"
+	click_button "Create Ticket"
+	page.should have_content("Ticket has not been created.")
+	#page.should have_content("Description is too short")
+  end
 end
