@@ -27,6 +27,11 @@ before_filter :find_ticket, :only => [:show, :edit, :update, :destroy]
 		render :action => "edit"
 	end
   end
+  def destroy
+	@ticket.destroy
+	flash[:notice] = "Ticket has been deleted."
+	redirect_to @project
+  end
   private
 	def find_project
 		@project = Project.find(params[:project_id])
