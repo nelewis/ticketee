@@ -24,6 +24,7 @@ gem 'jquery-rails'
 
 group :test, :development do
 	gem 'rspec-rails', '~> 2.11'
+	gem 'devise', '2.1.0.rc'
 end
 
 group :test do
