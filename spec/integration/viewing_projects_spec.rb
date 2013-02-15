@@ -1,10 +1,16 @@
 require 'spec_helper'
 
-feature "Viewing projects" do
-  scenario "Listing all projects" do
-	views = Factory.create(:name => "States")
+feature "Viewing projects:" do
+  before do
+	textmate_2 = Factory(:project, :name => "TextMate 2")
+		
+	internet_explorer = Factory(:project, :name => "Internet Explorer")
+
 	visit '/'
-	click_link 'States'
-	page.current_url.should == project_url(views)
+  end
+  
+  scenario "Listing all projects" do
+	page.should have_content("TextMate 2")
+	page.should have_content("Internet Explorer")
   end
 end
