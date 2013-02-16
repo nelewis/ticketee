@@ -1,4 +1,5 @@
 require 'spec_helper'
+
 feature "Editing tickets" do
   let!(:project) { Factory(:project) }
   let!(:user) { Factory(:confirmed_user) }
@@ -9,6 +10,7 @@ feature "Editing tickets" do
   end
 
     before do
+    	sign_in_as! (user)
 		visit '/'
 		click_link project.name
 		click_link ticket.title
