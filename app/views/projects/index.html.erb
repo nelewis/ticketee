@@ -1,5 +1,8 @@
-<%= link_to "New Ticket", new_project_path %><br.>
-<%= link_to "New Project", new_project_path %>
+<%= link_to "New Ticket", new_project_path %><br>
+<% admins_only do %>
+  <%= link_to "New Project", new_project_path %>
+<% end %>
+
 <h2>Tickets via Ticketee</h2>
 <ul>
   <% @projects.each do |project| %>
