@@ -27,6 +27,10 @@ group :test, :development do
 	gem 'rspec-rails', '~> 2.11'
 	gem 'devise', '2.1.0.rc'
 	gem "awesome_print", "~> 1.1.0"
+	gem 'pry'
+	gem 'pry-remote'
+	gem 'pry-stack_explorer'
+	gem 'pry-debugger'
 end
 
 group :test do
