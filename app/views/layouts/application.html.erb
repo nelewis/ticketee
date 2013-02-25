@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <%= stylesheet_link_tag "application" %>
 <html>
-<head>
-  <title><%= @title || "Nicole's Ticketee" %></title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<% flash.each do |key, value| %>
-	<div class='flash' id='<%= key %>'>
-		<%= value %>
-	</div>
-<% end %>
-
-<nav>
-  <% if user_signed_in? %>
-	Signed in as <%= current_user.email %>
-  <% else %>
-	<%= link_to "Sign up", new_user_registration_path %>
-	<%= link_to "Sign in", new_user_session_path %>
-	<%= link_to "Home", projects_path %>
-  <% end %>
-</nav>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title><%= @title || "Nicole's Ticketee" %></title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <% flash.each do |key, value| %>
+      <div class='flash' id='<%= key %>'>
+        <%= value %>
+      </div>
+    <% end %>
+    <nav>
+      <% if user_signed_in? %>
+        Signed in as
+        <%= current_user.email %>
+        <% admins_only do %>
+          <%= link_to "Admin", admin_root_path %>
+        <% end %>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path %>
+        <%= link_to "Sign in", new_user_session_path %>
+        <%= link_to "Home", projects_path %>
+      <% end %>
+    </nav>
+    <%= yield %>
+  </body>
 </html>

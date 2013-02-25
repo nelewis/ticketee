@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
-#gem 'dynamic_form', '1.1.4'
+gem 'dynamic_form', '1.1.4'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -24,19 +24,19 @@ end
 gem 'jquery-rails'
 
 group :test, :development do
-	gem 'rspec-rails', '~> 2.11'
-	gem 'devise', '2.1.0.rc'
-	gem "awesome_print", "~> 1.1.0"
-	gem 'pry'
-	gem 'pry-remote'
-	gem 'pry-stack_explorer'
-	gem 'pry-debugger'
+  gem 'rspec-rails', '~> 2.11'
+  gem 'devise', '2.1.0.rc'
+  gem "awesome_print", "~> 1.1.0"
+  gem 'pry'
+  gem 'pry-remote'
+  gem 'pry-stack_explorer'
+  gem 'pry-debugger'
 end
 
 group :test do
-	gem 'capybara', '1.1.2'
-	gem 'factory_girl', '2.6.4'
-	gem 'email_spec', '1.2.1'
+  gem 'capybara', '1.1.2'
+  gem 'factory_girl', '2.6.4'
+  gem 'email_spec', '1.2.1'
 end
 
 # To use ActiveModel has_secure_password
