@@ -8,5 +8,8 @@
     <%= f.label :password %>
     <%= f.password_field :password %>
   </p>
+  <p><%= f.check_box :admin %>
+    <%= f.label :admin, "Is this an admin?" %>
+  </p>
   <%= f.submit %>
 <% end %>
