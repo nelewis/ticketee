@@ -34,6 +34,11 @@ class Admin::UsersController < Admin::BaseController
       render :action => "edit"
     end
   end
+  def destroy
+    @user.destroy
+    flash[:notice] = "User has been deleted."
+    redirect_to admin_users_path
+  end
   private
   def find_user
     @user = User.find(params[:id])
