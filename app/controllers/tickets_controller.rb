@@ -1,5 +1,4 @@
 class TicketsController < ApplicationController
-  #before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :authenticate_user!
   before_filter :find_project
   before_filter :find_ticket, :only => [:show, :edit, :update, :destroy]
@@ -8,6 +7,7 @@ class TicketsController < ApplicationController
   before_filter :authorize_delete!, :only => [:destroy]
   def new
     @ticket = @project.tickets.build
+    3.times { @ticket.assets.build }
   end
   def show
   end
